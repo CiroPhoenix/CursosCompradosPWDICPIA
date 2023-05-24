@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `proyecto_bdm`.`curso` (
   
   
   alter table curso add key (Costo_Curso);
-  alter table curso add key (Titulo_Curso);
+
  
   
   create table carrito
@@ -125,7 +125,27 @@ foreign key(Costo_Curso)references curso(Costo_Curso),
 foreign key(Titulo_Curso)references curso(Titulo_Curso)
 );
 
+drop table carrito;
   
+  
+   
+   
+create table curso_comprados
+(
+
+Usuario int,
+Curso int,
+Costo DECIMAL,
+Titulo varchar(255),
+foreign key(Usuario)references usuario(ID_Usuario),
+foreign key(Curso)references curso(ID_Curso),
+foreign key(Costo)references curso(Costo_Curso),
+foreign key(Titulo)references curso(Titulo_Curso)
+);
+
+
+drop table curso_comprados;
+
   
   
   
